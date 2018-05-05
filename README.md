@@ -18,7 +18,7 @@ npm install crypto-ts
 ES6 import for typical API call signing use case:
 
 ```javascript
-import { AESAlgo } from 'crypto-ts';
+import { AES } from 'crypto-ts';
 
 const encryptedMessage = AES.encrypt('message', 'test').toString();
 ```
