@@ -27,7 +27,7 @@ Modular include:
 
 ```javascript
 var AES = require("crypto-ts").AES;
-var SHA256 = require("crypto-ts/SHA256");
+var SHA256 = require("crypto-ts").SHA256;
 ...
 console.log(SHA256("Message"));
 ```
@@ -35,8 +35,9 @@ console.log(SHA256("Message"));
 Including all libraries, for access to extra methods:
 
 ```javascript
-var CryptoJS = require("crypto-js");
-console.log(CryptoJS.HmacSHA1("Message", "Key"));
+var cryptoTS = require("crypto-ts");
+...
+console.log(cryptoTS.HmacSHA1("Message", "Key"));
 ```
 
 ## Client (browser)
