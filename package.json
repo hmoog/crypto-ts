@@ -19,7 +19,43 @@
     "travis-deploy-once": "travis-deploy-once"
   },
   "release": {
-    "verifyConditions": ["@semantic-release/npm", "@semantic-release/github"],
+    "verifyConditions": [
+      "@semantic-release/npm",
+      "@semantic-release/github"
+    ],
+    "analyzeCommits": {
+      "preset": "eslint",
+      "releaseRules": [
+        {
+          "breaking": true,
+          "release": "major"
+        },
+        {
+          "tag": "Docs",
+          "release": "patch"
+        },
+        {
+          "tag": "Fix",
+          "release": "patch"
+        },
+        {
+          "tag": "Perf",
+          "release": "patch"
+        },
+        {
+          "tag": "Refactor",
+          "release": "patch"
+        },
+        {
+          "tag": "Test",
+          "release": "patch"
+        },
+        {
+          "tag": "Feat",
+          "release": "minor"
+        }
+      ]
+    },
     "publish": [
       {
         "path": "@semantic-release/npm",
@@ -28,9 +64,18 @@
       {
         "path": "@semantic-release/github",
         "assets": [
-          {"path": "npm-package.tar.gz", "label": "NPM Package"},
-          {"path": "dist/bundles/crypto-ts.umd.js", "label": "crypto-ts.umd.js"},
-          {"path": "dist/bundles/crypto-ts.umd.min.js", "label": "crypto-ts.umd.min.js"}
+          {
+            "path": "npm-package.tar.gz",
+            "label": "NPM Package"
+          },
+          {
+            "path": "dist/bundles/crypto-ts.umd.js",
+            "label": "crypto-ts.umd.js"
+          },
+          {
+            "path": "dist/bundles/crypto-ts.umd.min.js",
+            "label": "crypto-ts.umd.min.js"
+          }
         ]
       }
     ],
