@@ -1,0 +1,4 @@
+/**
+ * @license crypto-ts
+ * MIT license
+ */

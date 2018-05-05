@@ -1,0 +1,34 @@
+{
+    "extends": [
+        "tslint-angular"
+    ],
+    "rules": {
+        "no-bitwise": false,
+        "eofline": false,
+        "whitespace": [
+            true,
+            "check-decl",
+            "check-operator",
+            "check-separator",
+            "check-type"
+        ],
+        "directive-selector": [
+            true,
+            "attribute",
+            [
+                "dir-prefix1",
+                "dir-prefix2"
+            ],
+            "camelCase"
+        ],
+        "component-selector": [
+            true,
+            "element",
+            [
+                "cmp-prefix1",
+                "cmp-prefix2"
+            ],
+            "kebab-case"
+        ]
+    }
+}

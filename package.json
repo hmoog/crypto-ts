@@ -1,0 +1,105 @@
+{
+  "name": "crypto-ts",
+  "private": false,
+  "version": "0.0.0-development",
+  "description": "Typescript library of crypto standards.",
+  "main": "./bundles/crypto-ts.umd.js",
+  "module": "./esm5/crypto-ts.js",
+  "es2015": "./esm2015/crypto-ts.js",
+  "scripts": {
+    "build": "node build.js",
+    "test": "karma start",
+    "test:watch": "karma start karma.conf.js --single-run false",
+    "pack:lib": "npm run build && npm pack ./dist",
+    "publish:lib": "npm run build && npm publish ./dist",
+    "publish:lib:next": "npm run build && npm publish --tag next ./dist",
+    "compodoc": "compodoc -p tsconfig.json",
+    "compodoc:serve": "compodoc -s",
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
+  },
+  "release": {
+    "verifyConditions": ["@semantic-release/npm", "@semantic-release/github"],
+    "publish": [
+      {
+        "path": "@semantic-release/npm",
+        "pkgRoot": "dist"
+      },
+      {
+        "path": "@semantic-release/github",
+        "assets": [
+          {"path": "npm-package.tar.gz", "label": "NPM Package"},
+          {"path": "dist/bundles/crypto-ts.umd.js", "label": "crypto-ts.umd.js"},
+          {"path": "dist/bundles/crypto-ts.umd.min.js", "label": "crypto-ts.umd.min.js"}
+        ]
+      }
+    ],
+    "pkgRoot": "dist"
+  },
+  "typings": "./crypto-ts.d.ts",
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hmoog/crypto-ts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hmoog/crypto-ts/issues"
+  },
+  "homepage": "https://github.com/hmoog/crypto-ts",
+  "keywords": [
+    "angular",
+    "javascript",
+    "typescript"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "tslib": "^1.7.1"
+  },
+  "peerDependencies": {
+    "@angular/common": ">= 5.0.0",
+    "@angular/core": ">= 5.0.0"
+  },
+  "devDependencies": {
+    "@angular/animations": "5.2.10",
+    "@angular/common": "5.2.10",
+    "@angular/compiler": "5.2.10",
+    "@angular/compiler-cli": "5.2.10",
+    "@angular/core": "5.2.10",
+    "@angular/platform-browser": "5.2.10",
+    "@angular/platform-browser-dynamic": "5.2.10",
+    "@angular/platform-server": "5.2.10",
+    "@compodoc/compodoc": "1.1.2",
+    "@types/jasmine": "2.8.6",
+    "@types/node": "10.0.0",
+    "chalk": "2.4.1",
+    "codelyzer": "4.3.0",
+    "core-js": "2.5.5",
+    "istanbul-instrumenter-loader": "3.0.1",
+    "jasmine-core": "3.1.0",
+    "karma": "2.0.2",
+    "karma-chrome-launcher": "2.2.0",
+    "karma-coverage-istanbul-reporter": "1.4.2",
+    "karma-jasmine": "1.1.1",
+    "karma-sourcemap-loader": "0.3.7",
+    "karma-spec-reporter": "0.0.32",
+    "karma-webpack": "^4.0.0-beta.0",
+    "reflect-metadata": "0.1.12",
+    "rollup": "0.58.2",
+    "rollup-plugin-license": "0.6.0",
+    "rollup-plugin-node-resolve": "3.3.0",
+    "rollup-plugin-sourcemaps": "0.4.2",
+    "rxjs": "6.0.0",
+    "rxjs-compat": "^6.0.0",
+    "shelljs": "0.8.1",
+    "source-map-loader": "0.2.3",
+    "ts-loader": "4.2.0",
+    "tslint": "5.9.1",
+    "tslint-angular": "1.1.1",
+    "typescript": "2.8.3",
+    "uglify-js": "3.3.23",
+    "webpack": "4.6.0",
+    "zone.js": "0.8.26",
+    "semantic-release": "^15.2.0",
+    "travis-deploy-once": "^5.0.0"
+  }
+}
