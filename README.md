@@ -26,8 +26,8 @@ const encryptedMessage = AES.encrypt('message', 'test').toString();
 Modular include:
 
 ```javascript
-var AES = require("crypto-js/aes");
-var SHA256 = require("crypto-js/sha256");
+var AES = require("crypto-ts").AES;
+var SHA256 = require("crypto-ts/SHA256");
 ...
 console.log(SHA256("Message"));
 ```
