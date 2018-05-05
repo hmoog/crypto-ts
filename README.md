@@ -1,6 +1,6 @@
 # crypto-ts
 
-Typescript library of crypto standards.
+Typescript library of crypto standards. Ready for AOT and treeshaking in combination with Angular and other modern typescript frameworks.
 
 ## Node.js (Install)
 
@@ -35,9 +35,9 @@ console.log(SHA256("Message"));
 Including all libraries, for access to extra methods:
 
 ```javascript
-var cryptoTS = require("crypto-ts");
+var CryptoTS = require("crypto-ts");
 ...
-console.log(cryptoTS.HmacSHA1("Message", "Key"));
+console.log(CryptoTS.HmacSHA1("Message", "Key"));
 ```
 
 ## Client (browser)
@@ -48,7 +48,7 @@ Requirements:
 - Bower (package manager for frontend)
 
 ```bash
-bower install crypto-js
+bower install crypto-ts
 ```
 
 ### Usage
@@ -59,14 +59,14 @@ Modular include:
 require.config({
     packages: [
         {
-            name: 'crypto-js',
-            location: 'path-to/bower_components/crypto-js',
+            name: 'crypto-ts',
+            location: 'path-to/bower_components/crypto-ts',
             main: 'index'
         }
     ]
 });
 
-require(["crypto-js/aes", "crypto-js/sha256"], function (AES, SHA256) {
+require(["crypto-ts/algo/aes", "crypto-ts/algo/sha256"], function (AES, SHA256) {
     console.log(SHA256("Message"));
 });
 ```
@@ -77,42 +77,38 @@ Including all libraries, for access to extra methods:
 // Above-mentioned will work or use this simple form
 require.config({
     paths: {
-        'crypto-js': 'path-to/bower_components/crypto-js/crypto-js'
+        'crypto-ts': 'path-to/bower_components/crypto-ts/crypto-ts'
     }
 });
 
-require(["crypto-js"], function (CryptoJS) {
-    console.log(CryptoJS.HmacSHA1("Message", "Key"));
+require(["crypto-ts"], function (CryptoTS) {
+    console.log(CryptoTS.MD5("Message"));
 });
 ```
 
 ### Usage without RequireJS
 
 ```html
-<script type="text/javascript" src="path-to/bower_components/crypto-js/crypto-js.js"></script>
+<script type="text/javascript" src="path-to/bower_components/crypto-ts/crypto-ts.js"></script>
 <script type="text/javascript">
-    var encrypted = CryptoJS.AES(...);
-    var encrypted = CryptoJS.SHA256(...);
+    var encrypted = CryptoTS.AES(...);
+    var encrypted = CryptoTS.SHA256(...);
 </script>
 ```
-
-## API
-
-See: https://code.google.com/p/crypto-js
 
 ### AES Encryption
 
 #### Plain text encryption
 
 ```javascript
-var CryptoJS = require("crypto-js");
+var CryptoTS = require("crypto-ts");
 
 // Encrypt
-var ciphertext = CryptoJS.AES.encrypt('my message', 'secret key 123');
+var ciphertext = CryptoTS.AES.encrypt('my message', 'secret key 123');
 
 // Decrypt
-var bytes  = CryptoJS.AES.decrypt(ciphertext.toString(), 'secret key 123');
-var plaintext = bytes.toString(CryptoJS.enc.Utf8);
+var bytes  = CryptoTS.AES.decrypt(ciphertext.toString(), 'secret key 123');
+var plaintext = bytes.toString(CryptoTS.enc.Utf8);
 
 console.log(plaintext);
 ```
@@ -120,16 +116,16 @@ console.log(plaintext);
 #### Object encryption
 
 ```javascript
-var CryptoJS = require("crypto-js");
+var CryptoTS = require("crypto-ts");
 
 var data = [{id: 1}, {id: 2}]
 
 // Encrypt
-var ciphertext = CryptoJS.AES.encrypt(JSON.stringify(data), 'secret key 123');
+var ciphertext = CryptoTS.AES.encrypt(JSON.stringify(data), 'secret key 123');
 
 // Decrypt
-var bytes  = CryptoJS.AES.decrypt(ciphertext.toString(), 'secret key 123');
-var decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+var bytes  = CryptoTS.AES.decrypt(ciphertext.toString(), 'secret key 123');
+var decryptedData = JSON.parse(bytes.toString(CryptoTS.enc.Utf8));
 
 console.log(decryptedData);
 ```
@@ -137,71 +133,71 @@ console.log(decryptedData);
 ### List of modules
 
 
-- ```crypto-js/core```
-- ```crypto-js/x64-core```
-- ```crypto-js/lib-typedarrays```
+- ```crypto-ts/core```
+- ```crypto-ts/x64-core```
+- ```crypto-ts/lib-typedarrays```
 
 ---
 
-- ```crypto-js/md5```
-- ```crypto-js/sha1```
-- ```crypto-js/sha256```
-- ```crypto-js/sha224```
-- ```crypto-js/sha512```
-- ```crypto-js/sha384```
-- ```crypto-js/sha3```
-- ```crypto-js/ripemd160```
+- ```crypto-ts/md5```
+- ```crypto-ts/sha1```
+- ```crypto-ts/sha256```
+- ```crypto-ts/sha224```
+- ```crypto-ts/sha512```
+- ```crypto-ts/sha384```
+- ```crypto-ts/sha3```
+- ```crypto-ts/ripemd160```
 
 ---
 
-- ```crypto-js/hmac-md5```
-- ```crypto-js/hmac-sha1```
-- ```crypto-js/hmac-sha256```
-- ```crypto-js/hmac-sha224```
-- ```crypto-js/hmac-sha512```
-- ```crypto-js/hmac-sha384```
-- ```crypto-js/hmac-sha3```
-- ```crypto-js/hmac-ripemd160```
+- ```crypto-ts/hmac-md5```
+- ```crypto-ts/hmac-sha1```
+- ```crypto-ts/hmac-sha256```
+- ```crypto-ts/hmac-sha224```
+- ```crypto-ts/hmac-sha512```
+- ```crypto-ts/hmac-sha384```
+- ```crypto-ts/hmac-sha3```
+- ```crypto-ts/hmac-ripemd160```
 
 ---
 
-- ```crypto-js/pbkdf2```
+- ```crypto-ts/pbkdf2```
 
 ---
 
-- ```crypto-js/aes```
-- ```crypto-js/tripledes```
-- ```crypto-js/rc4```
-- ```crypto-js/rabbit```
-- ```crypto-js/rabbit-legacy```
-- ```crypto-js/evpkdf```
+- ```crypto-ts/aes```
+- ```crypto-ts/tripledes```
+- ```crypto-ts/rc4```
+- ```crypto-ts/rabbit```
+- ```crypto-ts/rabbit-legacy```
+- ```crypto-ts/evpkdf```
 
 ---
 
-- ```crypto-js/format-openssl```
-- ```crypto-js/format-hex```
+- ```crypto-ts/format-openssl```
+- ```crypto-ts/format-hex```
 
 ---
 
-- ```crypto-js/enc-latin1```
-- ```crypto-js/enc-utf8```
-- ```crypto-js/enc-hex```
-- ```crypto-js/enc-utf16```
-- ```crypto-js/enc-base64```
+- ```crypto-ts/enc-latin1```
+- ```crypto-ts/enc-utf8```
+- ```crypto-ts/enc-hex```
+- ```crypto-ts/enc-utf16```
+- ```crypto-ts/enc-base64```
 
 ---
 
-- ```crypto-js/mode-cfb```
-- ```crypto-js/mode-ctr```
-- ```crypto-js/mode-ctr-gladman```
-- ```crypto-js/mode-ofb```
-- ```crypto-js/mode-ecb```
+- ```crypto-ts/mode-cfb```
+- ```crypto-ts/mode-ctr```
+- ```crypto-ts/mode-ctr-gladman```
+- ```crypto-ts/mode-ofb```
+- ```crypto-ts/mode-ecb```
 
 ---
 
-- ```crypto-js/pad-pkcs7```
-- ```crypto-js/pad-ansix923```
-- ```crypto-js/pad-iso10126```
-- ```crypto-js/pad-iso97971```
-- ```crypto-js/pad-zeropadding```
-- ```crypto-js/pad-nopadding```
+- ```crypto-ts/pad-pkcs7```
+- ```crypto-ts/pad-ansix923```
+- ```crypto-ts/pad-iso10126```
+- ```crypto-ts/pad-iso97971```
+- ```crypto-ts/pad-zeropadding```
+- ```crypto-ts/pad-nopadding```
