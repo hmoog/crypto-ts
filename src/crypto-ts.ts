@@ -35,10 +35,12 @@ export const algo = {
 
 import { Utf8 } from './enc/Utf8';
 import { Hex } from './enc/Hex';
+import { Base64 } from './enc/Base64';
 
 export const enc = {
     Utf8: Utf8,
-    Hex: Hex
+    Hex: Hex,
+    Base64: Base64
 };
 
 // PADDING /////////////////////////////////////////////////////////////////////////////////////////
