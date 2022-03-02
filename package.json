@@ -123,7 +123,7 @@
     "core-js": "2.5.5",
     "istanbul-instrumenter-loader": "3.0.1",
     "jasmine-core": "3.1.0",
-    "karma": "2.0.2",
+    "karma": "6.3.16",
     "karma-chrome-launcher": "2.2.0",
     "karma-coverage-istanbul-reporter": "1.4.2",
     "karma-jasmine": "1.1.1",
