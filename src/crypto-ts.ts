@@ -25,10 +25,12 @@ export const lib = {
 
 import { AES as AESAlgorithm } from './algo/AES';
 import { SHA256 as SHA256Algorithm } from './algo/SHA256';
+import { MD5 as MD5Algorithm } from './algo/MD5';
 
 export const algo = {
     AES: AESAlgorithm,
-    SHA256: SHA256Algorithm
+    SHA256: SHA256Algorithm,
+    MD5: MD5Algorithm
 };
 
 // ENCODINGS ///////////////////////////////////////////////////////////////////////////////////////
@@ -65,3 +67,4 @@ export const mode = {
 
 export const AES = lib.BlockCipher._createHelper(algo.AES);
 export const SHA256 = lib.Hasher._createHelper(algo.SHA256);
+export const MD5 = lib.Hasher._createHelper(algo.MD5);
