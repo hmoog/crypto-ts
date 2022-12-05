@@ -1,16 +1,16 @@
 // DEPENDENCIES ////////////////////////////////////////////////////////////////////////////////////
 
 // import indirectly referenced declarations
-import { BufferedBlockAlgorithmConfig } from './lib/BufferedBlockAlgorithmConfig';
+import {BufferedBlockAlgorithmConfig} from './lib/BufferedBlockAlgorithmConfig';
 
 // LIB /////////////////////////////////////////////////////////////////////////////////////////////
 
-import { WordArray } from './lib/WordArray';
-import { BlockCipher } from './lib/BlockCipher';
-import { CipherParams } from './lib/CipherParams';
-import { Hasher } from './lib/Hasher';
-import { SerializableCipher } from './lib/SerializableCipher';
-import { PasswordBasedCipher } from './lib/PasswordBasedCipher';
+import {WordArray} from './lib/WordArray';
+import {BlockCipher} from './lib/BlockCipher';
+import {CipherParams} from './lib/CipherParams';
+import {Hasher} from './lib/Hasher';
+import {SerializableCipher} from './lib/SerializableCipher';
+import {PasswordBasedCipher} from './lib/PasswordBasedCipher';
 
 export const lib = {
     BlockCipher: BlockCipher,
@@ -23,9 +23,9 @@ export const lib = {
 
 // ALGORITHMS //////////////////////////////////////////////////////////////////////////////////////
 
-import { AES as AESAlgorithm } from './algo/AES';
-import { SHA256 as SHA256Algorithm } from './algo/SHA256';
-import { MD5 as MD5Algorithm } from './algo/MD5';
+import {AES as AESAlgorithm} from './algo/AES';
+import {SHA256 as SHA256Algorithm} from './algo/SHA256';
+import {MD5 as MD5Algorithm} from './algo/MD5';
 
 export const algo = {
     AES: AESAlgorithm,
@@ -35,9 +35,9 @@ export const algo = {
 
 // ENCODINGS ///////////////////////////////////////////////////////////////////////////////////////
 
-import { Utf8 } from './enc';
-import { Hex } from './enc/Hex';
-import { Base64 } from './enc/Base64';
+import {Utf8} from './enc';
+import {Hex} from './enc/Hex';
+import {Base64} from './enc/Base64';
 
 export const enc = {
     Utf8,
@@ -47,8 +47,8 @@ export const enc = {
 
 // PADDING /////////////////////////////////////////////////////////////////////////////////////////
 
-import { NoPadding } from './pad/NoPadding';
-import { PKCS7 } from './pad/PKCS7';
+import {NoPadding} from './pad/NoPadding';
+import {PKCS7} from './pad/PKCS7';
 
 export const pad = {
     NoPadding: NoPadding,
@@ -57,8 +57,8 @@ export const pad = {
 
 // MODES ///////////////////////////////////////////////////////////////////////////////////////////
 
-import { CBC } from './mode/CBC';
-import { ECB } from './mode/ECB';
+import {CBC} from './mode/CBC';
+import {ECB} from './mode/ECB';
 
 export const mode = {
     CBC: CBC,
@@ -70,3 +70,5 @@ export const mode = {
 export const AES = lib.BlockCipher._createHelper(algo.AES);
 export const SHA256 = lib.Hasher._createHelper(algo.SHA256);
 export const MD5 = lib.Hasher._createHelper(algo.MD5);
+
+export default {lib, algo, enc, pad, mode, AES, SHA256, MD5};
